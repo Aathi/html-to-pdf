@@ -9,9 +9,6 @@ app.get("/pdf", (req, res) => {
   res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
   res.header("Access-Control-Allow-Headers", "Content-Type");
   if (typeof req.query.name !== "undefined") {
-      console.log('==============req.query======================');
-      console.log(req.query);
-      console.log('====================================');
       converter.createpdf(req.query);
   }
 });

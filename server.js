@@ -2,14 +2,18 @@ const express = require("express");
 const app = express();
 const router = express.Router();
 const path = require("path");
-const converter = require("./pdfGenerator");
+const pdf = require("./pdfGenerator");
+const html = require("./htmlGenerator");
 
-app.get("/pdf", (req, res) => {
+app.get("/file-composer", (req, res) => {
   if (typeof req.query.name !== "undefined") {
-    converter.createpdf(req.query, function(data) {
-      console.log('====================================');
-      console.log(data);
-      console.log('====================================');
+    html.createHtml(req.query, function(htmlresp) {
+      pdf.createPdf(req.query, function(pdfResp) {
+        console.log('====================================');
+        console.log('Html has been created',htmlresp);
+        console.log('PDF has been created', pdfResp);
+        console.log('====================================');
+      });
     });
   }
 });

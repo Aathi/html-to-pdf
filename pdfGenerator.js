@@ -17,8 +17,8 @@ process.env["PATH"] =
   process.env["PATH"] + ":" + process.env["LAMBDA_TASK_ROOT"];
 
 module.exports = {
-  createpdf: function(event, callback) {
-    i2b(event.avatar, function(err, data) {
+    createPdf: function(event, callback) {
+    i2b(event.pdfAvatar, function(err, data) {
       event.base64Image = data.dataUri;
       pdf
         .create(obituaryPdfTemplate(event), options)
@@ -29,9 +29,10 @@ module.exports = {
             var s3 = new AWS.S3();
             var fileName = `${event.name}.pdf`;
             var params = {
-              Bucket: "obituary-pdf",
+              Bucket: "obituary-files/pdf",
               Key: fileName,
-              Body: buffer
+              Body: buffer,
+              ContentType: 'application/pdf'
             };
             s3.putObject(params, function(err, data) {
               if (err) console.log("Function Error: ", err);
@@ -275,9 +276,9 @@ const obituaryPdfTemplate = params => {
               } ${
                     params.job
                     ? `
-                            <p>
-                                அமரர் ${params.job}
-                            </p>`
+                        <p>
+                            அமரர் ${params.job}
+                        </p>`
                     : ""
                 }
                 
@@ -334,7 +335,7 @@ const obituaryPdfTemplate = params => {
                     params.job
                       ? `
                   <h3>
-                      <%= @site.job %>
+                     ${params.job}
                   </h3>`
                       : ""
                   }

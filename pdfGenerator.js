@@ -1,5 +1,4 @@
-
-var AWS = require("aws-sdk"); 
+var AWS = require("aws-sdk");
 var path = require("path");
 var pdf = require("html-pdf");
 var i2b = require("imageurl-base64");
@@ -14,33 +13,35 @@ var options = {
   }
 };
 
-process.env["PATH"] = process.env["PATH"] + ":" + process.env["LAMBDA_TASK_ROOT"];
+process.env["PATH"] =
+  process.env["PATH"] + ":" + process.env["LAMBDA_TASK_ROOT"];
 
 module.exports = {
- createpdf: function (event) {
-i2b(event.avatar, function(err, data) {
-    event.base64Image = data.dataUri
-  pdf.create(obituaryPdfTemplate(event), options).toBuffer((err, buffer) => {
-      if (err) {
-        console.log("================error===============");
-        console.log(err);
-        console.log("====================================");
-      } else {
-        var s3 = new AWS.S3();
-        var fileName = `${event.name}.pdf`;
-        var params = {
-          Bucket: "obituary-pdf",
-          Key: fileName,
-          Body: buffer
-        };
-        s3.putObject(params, function(err, data) {
-          if(err) console.log(err);
+  createpdf: function(event, callback) {
+    i2b(event.avatar, function(err, data) {
+      event.base64Image = data.dataUri;
+      pdf
+        .create(obituaryPdfTemplate(event), options)
+        .toBuffer(function(err, buffer) {
+          if (err) {
+            console.log("Error: ", err);
+          } else {
+            var s3 = new AWS.S3();
+            var fileName = `${event.name}.pdf`;
+            var params = {
+              Bucket: "obituary-pdf",
+              Key: fileName,
+              Body: buffer
+            };
+            s3.putObject(params, function(err, data) {
+              if (err) console.log("Function Error: ", err);
+              return callback(data);
+            });
+          }
         });
-      }
     });
-});
-    }
-}
+  }
+};
 
 const obituaryPdfTemplate = params => {
   return `
@@ -77,12 +78,9 @@ const obituaryPdfTemplate = params => {
               height: 100%;
           }
   
-  
           body {
               font-family: 'Noto Sans Tamil', sans-serif;
-              /* font-family: 'Abirami' !important; */
           }
-  
   
           p {
               page-break-inside: avoid;
@@ -125,7 +123,6 @@ const obituaryPdfTemplate = params => {
             /* overflow: hidden; */
         }
   
-  
           .pb_after {
               page-break-after: always !important;
           }
@@ -156,19 +153,20 @@ const obituaryPdfTemplate = params => {
               margin-bottom: 6pt;
           }
   
-  
-  
           .cover-page .avatar img {
               width: 100%;
           }
+          
+
+            .support-page .avatar img {
+                width: 90%;
+            }
   
           .cover-page .content {
               text-align: center;
               width: 50%;
           }
-  
-  
-  
+    
           .inner {
               display: -webkit-box;
               display: -ms-flexbox;
@@ -266,15 +264,23 @@ const obituaryPdfTemplate = params => {
               <img src=${params.base64Image} alt=${params.name} />
           </div>
           <div class="content">
-              ${ params.bornAndLivedAt ? `
+              ${
+                params.bornAndLivedAt
+                  ? `
               <p>
                   ${params.bornAndLivedAt}
               </p>
-              ` : "" } ${ params.job ? `
-              <p>
-                  அமரர் ${params.job}
-              </p>` : "" }
-  
+              `
+                  : ""
+              } ${
+                    params.job
+                    ? `
+                            <p>
+                                அமரர் ${params.job}
+                            </p>`
+                    : ""
+                }
+                
               <h2>
                   ${params.name}
               </h2>
@@ -295,7 +301,7 @@ const obituaryPdfTemplate = params => {
           </div>
       </div>
   
-      <div class="page pb_after inner">
+      <div class="page pb_after inner support-page">
           <div class="head">
               <p> ${params.name}</p>
               <p> ${params.title}</p>
@@ -305,33 +311,37 @@ const obituaryPdfTemplate = params => {
               <div class="content">
                   <p>வையத்துள் வாழ்வாங்கு வாழ்பவன் வானுறையும்</p>
                   <p>தெய்வத்துள் வைக்கப் படும்.</p>
-                  <p>
+                  <div class="avatar">
                       <img src=${params.base64Image} alt=${params.name}/>
-                  </p>
+                  </div>
                   <div class="left">
                       <h2>தோற்றம்</h2>
-                      <h2>
-                          <b>
-                              ${params.born}
-                          </b>
-                      </h2>
+                      <p>
+                        <b>
+                            ${params.born}
+                        </b>
+                      </p>
                   </div>
                   <div class="right">
                       <h2>மறைவு</h2>
-                      <h2>
-                          <b>
-                              ${params.death}>
-                          </b>
-                      </h2>
+                      <p>
+                        <b>
+                            ${params.death}
+                        </b>
+                      </p>
                   </div>
-                  ${ params.job ? `
+                  ${
+                    params.job
+                      ? `
                   <h3>
                       <%= @site.job %>
-                  </h3>` : "" }
-                  <h1 class="baloo-thambi">
-                      ${params.name}
-                  </h1>
-                  <h3>அவர்கள்</h3>
+                  </h3>`
+                      : ""
+                  }
+                    <h2>
+                        ${params.name}
+                    </h2>
+                  <p>அவர்கள்</p>
               </div>
           </div>
   
@@ -1500,4 +1510,3 @@ const obituaryPdfTemplate = params => {
   </html>
   `;
 };
-

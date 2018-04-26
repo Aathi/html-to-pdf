@@ -305,7 +305,7 @@ const obituaryPdfTemplate = params => {
       <div class="page pb_after inner support-page">
           <div class="head">
               <p> ${params.name}</p>
-              <p> ${params.title}</p>
+              <p>நினைவு மலர்</p>
           </div>
   
           <div class="main-content">
@@ -375,7 +375,7 @@ const obituaryPdfTemplate = params => {
       <div class="page pb_after inner">
           <div class="head">
                <p> ${params.name}</p>  
-               <p> ${params.title}</p>  
+               <p>நினைவு மலர்</p>  
           </div>
   
           <div class="main-content">
@@ -421,7 +421,7 @@ const obituaryPdfTemplate = params => {
       <div class="page pb_after inner">
           <div class="head">
                <p> ${params.name}</p>  
-               <p> ${params.title}</p>  
+               <p>நினைவு மலர்</p>  
           </div>
   
           <div class="main-content">
@@ -472,7 +472,7 @@ const obituaryPdfTemplate = params => {
       <div class="page pb_after inner">
           <div class="head">
                <p> ${params.name}</p>  
-               <p> ${params.title}</p>  
+               <p>நினைவு மலர்</p>  
           </div>
   
           <div class="main-content">
@@ -515,7 +515,7 @@ const obituaryPdfTemplate = params => {
       <div class="page pb_after inner">
           <div class="head">
                <p> ${params.name}</p>  
-               <p> ${params.title}</p>  
+               <p>நினைவு மலர்</p>  
           </div>
   
           <div class="main-content">
@@ -560,7 +560,7 @@ const obituaryPdfTemplate = params => {
       <div class="page pb_after inner">
           <div class="head">
                <p> ${params.name}</p>  
-               <p> ${params.title}</p>  
+               <p>நினைவு மலர்</p>  
           </div>
   
           <div class="main-content">
@@ -608,7 +608,7 @@ const obituaryPdfTemplate = params => {
       <div class="page pb_after inner">
           <div class="head">
                <p> ${params.name}</p>  
-               <p> ${params.title}</p>  
+               <p>நினைவு மலர்</p>  
           </div>
   
           <div class="main-content">
@@ -656,7 +656,7 @@ const obituaryPdfTemplate = params => {
       <div class="page pb_after inner">
           <div class="head">
                <p> ${params.name}</p>  
-               <p> ${params.title}</p>  
+               <p>நினைவு மலர்</p>  
           </div>
   
           <div class="main-content">
@@ -706,7 +706,7 @@ const obituaryPdfTemplate = params => {
       <div class="page pb_after inner">
           <div class="head">
                <p> ${params.name}</p>  
-               <p> ${params.title}</p>  
+               <p>நினைவு மலர்</p>  
           </div>
   
   
@@ -756,7 +756,7 @@ const obituaryPdfTemplate = params => {
       <div class="page pb_after inner">
           <div class="head">
                <p> ${params.name}</p>  
-               <p> ${params.title}</p>  
+               <p>நினைவு மலர்</p>  
           </div>
   
   
@@ -801,7 +801,7 @@ const obituaryPdfTemplate = params => {
       <div class="page pb_after inner">
           <div class="head">
                <p> ${params.name}</p>  
-               <p> ${params.title}</p>  
+               <p>நினைவு மலர்</p>  
           </div>
   
           <div class="main-content">
@@ -849,7 +849,7 @@ const obituaryPdfTemplate = params => {
       <div class="page pb_after inner">
           <div class="head">
                <p> ${params.name}</p>  
-               <p> ${params.title}</p>  
+               <p>நினைவு மலர்</p>  
           </div>
   
           <div class="main-content">
@@ -899,7 +899,7 @@ const obituaryPdfTemplate = params => {
       <div class="page pb_after inner">
           <div class="head">
                <p> ${params.name}</p>  
-               <p> ${params.title}</p>  
+               <p>நினைவு மலர்</p>  
           </div>
   
           <div class="main-content">
@@ -948,7 +948,7 @@ const obituaryPdfTemplate = params => {
       <div class="page pb_after inner">
           <div class="head">
                <p> ${params.name}</p>  
-               <p> ${params.title}</p>  
+               <p>நினைவு மலர்</p>  
           </div>
   
           <div class="main-content">
@@ -988,7 +988,7 @@ const obituaryPdfTemplate = params => {
       <div class="page pb_after inner">
           <div class="head">
                <p> ${params.name}</p>  
-               <p> ${params.title}</p>  
+               <p>நினைவு மலர்</p>  
           </div>
   
           <div class="main-content">
@@ -1034,7 +1034,7 @@ const obituaryPdfTemplate = params => {
       <div class="page pb_after inner">
           <div class="head">
                <p> ${params.name}</p>  
-               <p> ${params.title}</p>  
+               <p>நினைவு மலர்</p>  
           </div>
   
           <div class="main-content">
@@ -1081,7 +1081,7 @@ const obituaryPdfTemplate = params => {
       <div class="page pb_after inner">
           <div class="head">
                <p> ${params.name}</p>  
-               <p> ${params.title}</p>  
+               <p>நினைவு மலர்</p>  
           </div>
   
           <div class="main-content">
@@ -1128,7 +1128,7 @@ const obituaryPdfTemplate = params => {
       <div class="page pb_after inner">
           <div class="head">
                <p> ${params.name}</p>  
-               <p> ${params.title}</p>  
+               <p>நினைவு மலர்</p>  
           </div>
   
           <div class="main-content">
@@ -1177,7 +1177,7 @@ const obituaryPdfTemplate = params => {
       <div class="page pb_after inner">
           <div class="head">
                <p> ${params.name}</p>  
-               <p> ${params.title}</p>  
+               <p>நினைவு மலர்</p>  
           </div>
   
           <div class="main-content">
@@ -1226,7 +1226,7 @@ const obituaryPdfTemplate = params => {
       <div class="page pb_after inner">
           <div class="head">
                <p> ${params.name}</p>  
-               <p> ${params.title}</p>  
+               <p>நினைவு மலர்</p>  
           </div>
   
           <div class="main-content">
@@ -1275,7 +1275,7 @@ const obituaryPdfTemplate = params => {
       <div class="page pb_after inner">
           <div class="head">
                <p> ${params.name}</p>  
-               <p> ${params.title}</p>  
+               <p>நினைவு மலர்</p>  
           </div>
   
           <div class="main-content">
@@ -1323,7 +1323,7 @@ const obituaryPdfTemplate = params => {
       <div class="page pb_after inner">
           <div class="head">
                <p> ${params.name}</p>  
-               <p> ${params.title}</p>  
+               <p>நினைவு மலர்</p>  
           </div>
   
           <div class="main-content">
@@ -1373,7 +1373,7 @@ const obituaryPdfTemplate = params => {
       <div class="page pb_after inner">
           <div class="head">
                <p> ${params.name}</p>  
-               <p> ${params.title}</p>  
+               <p>நினைவு மலர்</p>  
           </div>
   
           <div class="main-content">
@@ -1420,7 +1420,7 @@ const obituaryPdfTemplate = params => {
       <div class="page pb_after inner">
           <div class="head">
                <p> ${params.name}</p>  
-               <p> ${params.title}</p>  
+               <p>நினைவு மலர்</p>  
           </div>
   
           <div class="main-content">
@@ -1471,7 +1471,7 @@ const obituaryPdfTemplate = params => {
       <div class="page pb_after inner">
           <div class="head">
                <p> ${params.name}</p>  
-               <p> ${params.title}</p>  
+               <p>நினைவு மலர்</p>  
           </div>
   
           <div class="main-content">
